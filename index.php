@@ -13,15 +13,16 @@
 <script src="scripts/ace-builds/src/mode-javascript.js"></script>
 </head>
 <body data-flex data-flex-direction="vertical">
+	<div class="toolbar">
 	<form target="output" action="generate.php" method="post" id="goForIt">
 		<input type="hidden" name="HTML" id="HTML"/>
 		<input type="hidden" name="CSS" id="CSS"/>
 		<input type="hidden" name="JS" id="JS"/>
 		<input type="hidden" name="scriptMethod" id="scriptMethod"/>
 		<input type="hidden" name="docType" id="docType"/>
+		<input type="submit" name="play" id="play" value="Play!"/>
+		<input type="submit" name="save" id="save" value="Save!"/>
 	</form>
-	<div class="toolbar">
-		<button class="play">Play!</button>
 	</div>
 	<div class="panes" data-flex-weight="1" data-flex data-flex-direction="horizontal">
 			<ul class="sidebar">

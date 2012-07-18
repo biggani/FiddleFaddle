@@ -51,7 +51,7 @@ html, body {
 }
 .pane > *{
 	/* border: 1px solid black; */
-	box-shadow: 0 0 10px #777;
+	box-shadow: 0 0 10px #777 inset;
 }
 *:active {
 	-webkit-user-select: none;
@@ -61,7 +61,7 @@ html, body {
 	height: 50px;
 	background: url(images/logo.svg) no-repeat, -webkit-linear-gradient(top, hsl(330,100%, 51%) 0%, hsl(330,100%, 41%) 100%);
 }
-.toolbar button {
+.toolbar input {
 	margin-top: 10px;
 	padding: 5px;
 	height: 30px;

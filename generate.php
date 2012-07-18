@@ -13,16 +13,22 @@ array(
 $doc = new DOMDocument();
 $html = $doc->appendChild($doc->createElement("html"));
 $head = $html->appendChild($doc->createElement("head"));
-$script = $doc->createElement("script", base64_decode($_POST["JS"]));
-$style = $head->appendChild($doc->createElement("style", base64_decode($_POST["CSS"])));
-$body = $html->appendChild($doc->createElement("body"));
-$fragment = $doc->createDocumentFragment();
-@$fragment->appendXML(base64_decode($_POST["HTML"]));
-$body->appendChild($fragment);
-if($_POST["scriptMethod"] == 1){
+$script = $doc->createElement("script",htmlentities($_REQUEST["JS"]));
+$style = $head->appendChild($doc->createElement("style", htmlentities($_REQUEST["CSS"])));
+$body = $html->appendChild($doc->createElement("body",htmlentities($_REQUEST["HTML"])));
+/*$fragment = $doc->createDocumentFragment();
+$fragment->appendXML(base64_decode($_POST["HTML"]));
+$body->appendChild($fragment);*/
+//$body->appendChild($doc->createCDATASection(base64_decode($_REQUEST["HTML"])));
+if($_REQUEST["scriptMethod"] == 1){
 	$head->appendChild($script);
 }else{
 	$body->appendChild($script);
 }
-print "<!DOCTYPE ".($doctypes[$_POST["docType"]]).">".$doc->saveHTML();
+$doc->formatOutput = true;
+print "<!DOCTYPE ".($doctypes[$_REQUEST["docType"]]).">\n";
+foreach($doc->childNodes as $node){
+	print html_entity_decode($doc->saveXML($node));
+}
+
 ?>

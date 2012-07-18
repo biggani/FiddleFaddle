@@ -87,11 +87,11 @@ function resize2(){
 	CSSEditor.resize();	
 }
 
-document.querySelector(".play").addEventListener("click", function(){
+document.querySelector("#play").addEventListener("click", function(){
 	
-	document.querySelector("#HTML").value = btoa(HTMLEditor.getValue());
-	document.querySelector("#CSS").value = btoa(CSSEditor.getValue());
-	document.querySelector("#JS").value = btoa(JSEditor.getValue());
+	document.querySelector("#HTML").value = HTMLEditor.getValue();
+	document.querySelector("#CSS").value = CSSEditor.getValue();
+	document.querySelector("#JS").value = JSEditor.getValue();
 	document.querySelector("#scriptMethod").value = document.querySelector("#scriptMethodSelect").value;
 	document.querySelector("#docType").value = document.querySelector("#doctypeSelect").value;
 	document.querySelector("#goForIt").submit();
